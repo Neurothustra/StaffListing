@@ -1,0 +1,44 @@
+﻿@model Web.Peirce.FacultySearch.Models.Department
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create New Department</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <section class="form-horizontal content-card">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DepartmentName)
+                @Html.ValidationMessageFor(model => model.DepartmentName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </section>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $("input[type=text]").addClass("form-control");
+        })
+    </script>
+}

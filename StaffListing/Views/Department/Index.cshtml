@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Web.Peirce.FacultySearch.Models.Department>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Departments manager</h2>
+
+<p>
+    <div class="btn btn-default">
+        @Html.ActionLink("Create New", "Create")
+    </div>
+</p>
+<section class="content-card">
+    @foreach (var item in Model)
+    {
+        <p>
+            @Html.DisplayFor(modelItem => item.DepartmentName)
+            @Html.ActionLink("Edit", "Edit", new { id = item.DepartmentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.DepartmentId })
+        </p>
+    }
+</section>

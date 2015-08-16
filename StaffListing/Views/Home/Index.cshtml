@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Web.Peirce.FacultySearch.Models.Faculty>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<nav class="grid-control">
+    @{
+        Html.RenderAction("_DepartmentsPartial", "Department");
+    }
+</nav>
+
+<div class="grid-control">
+    <h2>@ViewBag.departmentName</h2>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p style="width: 100%;">
+            <div class="btn btn-default">
+                @Html.ActionLink("Create New", "Create")
+            </div>
+        </p>
+    }
+    @foreach (var item in Model)
+    {
+        <div class="grid-cell">
+            <span style="font-weight:bold;">
+                @Html.DisplayFor(modelItem => item.Prefix)
+                @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.DisplayFor(modelItem => item.MiddleName)
+                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(modelItem => item.Suffix)
+            </span>
+            <br />
+            @Html.DisplayFor(modelItem => item.JobTitle)
+            <br />
+            @Html.DisplayFor(modelItem => item.Email)
+            <br />
+            @Html.DisplayFor(modelItem => item.Telephone)
+            @if (User.Identity.IsAuthenticated)
+            {
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.FacultyId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.FacultyId })
+                </p>
+            }
+        </div>
+    }
+
+</div>

@@ -1,0 +1,28 @@
+﻿
+h2,
+.h2 {
+    margin: 0;
+}
+
+.navbar-inverse {
+    background-color: #fff;
+    border: none; 
+}
+
+    .navbar-inverse .navbar-brand:hover,
+    .navbar-inverse .navbar-nav > li > a:hover {
+        color: #005696;
+    }
+
+    .navbar-inverse .navbar-brand,
+    .navbar-inverse .navbar-nav > li > a {
+        color: #000;
+    }
+
+
+.btn-default,
+.form-control {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}

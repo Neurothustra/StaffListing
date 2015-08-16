@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Web.Peirce.FacultySearch.Models.Department>
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model.OrderBy(item => item.DepartmentName))
+{
+    <p>
+        <a href="~/Home/Index/@Html.DisplayFor(modelItem => item.DepartmentId)">@Html.DisplayFor(modelItem => item.DepartmentName)</a>
+    </p>
+}
